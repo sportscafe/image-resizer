@@ -198,7 +198,6 @@ Object.defineProperty(Image.prototype, 'contents', {
       catch(err){
         console.log('Error!'+err.message);
       }
-
     }
   }
 });
