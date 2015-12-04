@@ -52,7 +52,7 @@ ResponseWriter.prototype._write = function(image){
       fs.createReadStream(env.IMAGE_404).pipe(this.response);
     }
     else {
-      this.response.status(statusCode).end();
+      this.response.status(404).end();
     }
 
     return;
