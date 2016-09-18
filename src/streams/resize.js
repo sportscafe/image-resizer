@@ -89,12 +89,12 @@ module.exports = function () {
         r.resize(
             d.resize.width,
             d.resize.height
-          ).extract(
-            d.crop.y,
-            d.crop.x,
-            d.crop.width,
-            d.crop.height
-          );
+          ).extract({
+            top: d.crop.y,
+            left: d.crop.x,
+            width: d.crop.width,
+            height: d.crop.height
+          });
 
         r.toBuffer(resizeResponse);
       });
@@ -120,12 +120,12 @@ module.exports = function () {
           r.resize(
               d.resize.width,
               d.resize.height
-            ).extract(
-              d.crop.y,
-              d.crop.x,
-              d.crop.width,
-              d.crop.height
-            );
+            ).extract({
+              top: d.crop.y,
+              left: d.crop.x,
+              width: d.crop.width,
+              height: d.crop.height
+            });
           break;
         case 'cut':
           wd = image.modifiers.width || image.modifiers.height;
@@ -142,7 +142,7 @@ module.exports = function () {
           break;
         case 'scale':
           // TODO: deal with scale
-          r.resize(image.modifiers.width, image.modifiers.height);
+          r.extract({top: d.y, left: d.x, width: wd, height: ht});
           break;
         case 'pad':
           r.resize(
