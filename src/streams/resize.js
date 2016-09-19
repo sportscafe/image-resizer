@@ -141,8 +141,10 @@ module.exports = function () {
           r.extract(d.y, d.x, wd, ht);
           break;
         case 'scale':
-          // TODO: deal with scale
-          r.extract({top: d.y, left: d.x, width: wd, height: ht});
+          wd = image.modifiers.width || image.modifiers.height;
+          ht = image.modifiers.height || image.modifiers.width;
+
+          r.extract({top: 0, left: 0, width: wd, height: ht});
           break;
         case 'pad':
           r.resize(
