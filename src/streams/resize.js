@@ -144,7 +144,7 @@ module.exports = function () {
           wd = image.modifiers.width || image.modifiers.height;
           ht = image.modifiers.height || image.modifiers.width;
 
-          r.extract({top: 0, left: 0, width: wd, height: ht});
+          r.resize(wd, ht);
           break;
         case 'pad':
           r.resize(
