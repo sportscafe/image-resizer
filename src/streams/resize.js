@@ -11,7 +11,7 @@ module.exports = function () {
   return map( function(image, callback) {
 
     // do nothing if there is an error on the image object
-    if (image.isError()){
+    if (image.isError() || !(parseInt(image.modifiers.width) && parseInt(image.modifiers.height))){
       return callback(null, image);
     }
 
